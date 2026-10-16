@@ -1,0 +1,76 @@
+{
+  "site": {
+    "name": "光影集",
+    "tagline": "记录每一次快门下的真实",
+    "description": "个人写真作品展示 · 每套 6 张精选预览 · 全套原图网盘下载",
+    "contact": "商务 / 约拍请联系：请替换为你的联系方式"
+  },
+  "categories": [
+    { "id": "xiaoyuan", "name": "校园制服", "desc": "青春校园的青涩气息" },
+    { "id": "guofeng", "name": "国风古韵", "desc": "东方古韵与水墨质感" },
+    { "id": "zhichang", "name": "职场通勤", "desc": "都市职场的利落气场" },
+    { "id": "jujia", "name": "居家氛围", "desc": "温暖日常的松弛感" },
+    { "id": "yundong", "name": "运动健身", "desc": "活力与力量感" },
+    { "id": "lvxing", "name": "旅行度假", "desc": "阳光假日与海岸线" },
+    { "id": "jiepai", "name": "街拍穿搭", "desc": "随性街头的时髦感" },
+    { "id": "cos", "name": "二次元COS", "desc": "次元角色的还原演绎" },
+    { "id": "lifu", "name": "礼服派对", "desc": "高光时刻的华丽气场" },
+    { "id": "yishu", "name": "艺术写真", "desc": "光影与情绪的纯粹表达" }
+  ],
+  "models": [
+    {
+      "id": "001",
+      "name": "编号 001",
+      "category": "xiaoyuan",
+      "date": "2026-09-18",
+      "tags": ["清纯", "校园", "JK"],
+      "desc": "下午四点的教室，窗边的光刚好落在肩上。这一组拍了整个黄昏，从走廊到操场，是今年夏天最松弛的一组片子。",
+      "download_url": "https://pan.quark.cn/s/REPLACE_ME_001",
+      "download_note": "全套 48 张原图 · 无提取码",
+      "photos": [
+        "images/001/01.webp",
+        "images/001/02.webp",
+        "images/001/03.webp",
+        "images/001/04.webp",
+        "images/001/05.webp",
+        "images/001/06.webp"
+      ]
+    },
+    {
+      "id": "002",
+      "name": "编号 002",
+      "category": "guofeng",
+      "date": "2026-08-30",
+      "tags": ["国风", "汉服", "胶片"],
+      "desc": "借了朋友的旧院子，等了一整个下午的斜阳。衣服是手工绣的，光线一到位就按快门，没怎么调色。",
+      "download_url": "https://pan.quark.cn/s/REPLACE_ME_002",
+      "download_note": "全套 52 张原图 · 无提取码",
+      "photos": [
+        "images/002/01.webp",
+        "images/002/02.webp",
+        "images/002/03.webp",
+        "images/002/04.webp",
+        "images/002/05.webp",
+        "images/002/06.webp"
+      ]
+    },
+    {
+      "id": "003",
+      "name": "编号 003",
+      "category": "jiepai",
+      "date": "2026-10-02",
+      "tags": ["街拍", "酷感", "夜景"],
+      "desc": "晚上十点以后的街区，霓虹当补光。整组几乎全用大光圈手持拍完，颗粒感保留得多一些。",
+      "download_url": "https://pan.quark.cn/s/REPLACE_ME_003",
+      "download_note": "全套 40 张原图 · 无提取码",
+      "photos": [
+        "images/003/01.webp",
+        "images/003/02.webp",
+        "images/003/03.webp",
+        "images/003/04.webp",
+        "images/003/05.webp",
+        "images/003/06.webp"
+      ]
+    }
+  ]
+}

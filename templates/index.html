@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% import "_macros.html" as ui %}
+
+{% block content %}
+<section class="hero">
+  <div class="wrap">
+    <h1>{{ site.name }}</h1>
+    <p class="hero-tag">{{ site.tagline }}</p>
+    <p class="hero-desc">{{ site.description }}</p>
+  </div>
+</section>
+
+<section class="section" id="categories">
+  <div class="wrap">
+    <h2 class="section-title">全部分类</h2>
+    <div class="cat-grid">
+      {% for c in categories %}
+      <a class="cat" href="/c/{{ c.id }}/">
+        <span class="cat-name">{{ c.name }}</span>
+        <span class="cat-desc">{{ c.desc }}</span>
+        <span class="cat-count">{{ counts[c.id] }} 套</span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% if latest %}
+<section class="section">
+  <div class="wrap">
+    <h2 class="section-title">最新作品</h2>
+    <div class="card-grid">
+      {% for m in latest %}{{ ui.model_card(m) }}{% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+{% endblock %}

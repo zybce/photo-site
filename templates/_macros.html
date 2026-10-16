@@ -1,0 +1,15 @@
+{% macro model_card(m) %}
+<a class="card" href="/m/{{ m.id }}/">
+  <div class="card-thumb">
+    <img src="{{ m.photos[0] }}" alt="{{ m.name }}" loading="lazy" width="600" height="800">
+  </div>
+  <div class="card-body">
+    <h3 class="card-title">{{ m.name }}</h3>
+    <p class="card-meta">{% for t in m.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+  </div>
+</a>
+{% endmacro %}
+
+{% macro crumbs(items) %}
+<nav class="crumbs">{% for it in items %}{% if it.url %}<a href="{{ it.url }}">{{ it.text }}</a>{% else %}<span>{{ it.text }}</span>{% endif %}{% if not loop.last %}<i>/</i>{% endif %}{% endfor %}</nav>
+{% endmacro %}

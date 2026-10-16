@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+{% import "_macros.html" as ui %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    {{ ui.crumbs([{"text": "首页", "url": "/"}, {"text": cat.name, "url": "/c/" ~ cat.id ~ "/"}, {"text": m.name}]) }}
+
+    <h1 class="page-title">{{ m.name }}</h1>
+    <p class="page-meta">
+      <a href="/c/{{ cat.id }}/">{{ cat.name }}</a>
+      <span>{{ m.date }}</span>
+    </p>
+    <p class="page-desc">{{ m.desc }}</p>
+
+    <a class="btn-download" href="{{ m.download_url }}" target="_blank" rel="noopener">
+      <span class="btn-main">下载全套原图</span>
+      <span class="btn-sub">{{ m.download_note }}</span>
+    </a>
+
+    <div class="photo-grid">
+      {% for p in m.photos %}
+      <a class="photo" href="javascript:void(0)" data-full="{{ p }}">
+        <img src="{{ p }}" alt="{{ m.name }} {{ loop.index }}" loading="lazy" width="600" height="800">
+      </a>
+      {% endfor %}
+    </div>
+
+    {% if related %}
+    <h2 class="section-title">同类作品</h2>
+    <div class="card-grid">
+      {% for r in related %}{{ ui.model_card(r) }}{% endfor %}
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

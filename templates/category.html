@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "_macros.html" as ui %}
+
+{% block content %}
+<section class="section">
+  <div class="wrap">
+    {{ ui.crumbs([{"text": "首页", "url": "/"}, {"text": cat.name}]) }}
+    <h1 class="page-title">{{ cat.name }}</h1>
+    <p class="page-desc">{{ cat.desc }}</p>
+
+    {% if models %}
+    <div class="card-grid">
+      {% for m in models %}{{ ui.model_card(m) }}{% endfor %}
+    </div>
+    {% else %}
+    <p class="empty">这个分类还在拍摄中，敬请期待。</p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

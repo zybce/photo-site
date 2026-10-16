@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="theme-color" content="#ffffff">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:image" content="{{ og_image }}">
+<link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="/">{{ site.name }}</a>
+    <nav class="nav"><a href="/#categories">全部分类</a></nav>
+  </div>
+</header>
+
+<main>
+{% block content %}{% endblock %}
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <p>{{ site.name }} · {{ site.tagline }}</p>
+    <p class="muted">{{ site.contact }}</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" hidden>
+  <button class="lb-close" type="button" aria-label="关闭">&times;</button>
+  <button class="lb-prev" type="button" aria-label="上一张">&#10094;</button>
+  <img class="lb-img" alt="">
+  <button class="lb-next" type="button" aria-label="下一张">&#10095;</button>
+  <div class="lb-count"></div>
+</div>
+
+<script src="/static/app.js"></script>
+</body>
+</html>
