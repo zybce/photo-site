@@ -17,6 +17,7 @@
       {% for c in categories %}
       <a class="cat" href="/c/{{ c.id }}/">
         <span class="cat-name">{{ c.name }}</span>
+        {% if c.sub %}<span class="cat-sub">{{ c.sub }}</span>{% endif %}
         <span class="cat-desc">{{ c.desc }}</span>
         <span class="cat-count">{{ counts[c.id] }} 套</span>
       </a>

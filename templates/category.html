@@ -6,6 +6,7 @@
   <div class="wrap">
     {{ ui.crumbs([{"text": "首页", "url": "/"}, {"text": cat.name}]) }}
     <h1 class="page-title">{{ cat.name }}</h1>
+    {% if cat.sub %}<p class="page-sub">{{ cat.sub }}</p>{% endif %}
     <p class="page-desc">{{ cat.desc }}</p>
 
     {% if models %}

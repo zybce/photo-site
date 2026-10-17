@@ -4,27 +4,73 @@
 {% block content %}
 <section class="section">
   <div class="wrap">
-    {{ ui.crumbs([{"text": "首页", "url": "/"}, {"text": cat.name, "url": "/c/" ~ cat.id ~ "/"}, {"text": m.name}]) }}
+    {{ ui.crumbs([{"text": "首页", "url": "/"}, {"text": cat.name, "url": "/c/" ~ cat.id ~ "/"}, {"text": m.item_id}]) }}
 
-    <h1 class="page-title">{{ m.name }}</h1>
+    <h1 class="page-title">【{{ m.item_id }}】{{ m.title }}</h1>
     <p class="page-meta">
       <a href="/c/{{ cat.id }}/">{{ cat.name }}</a>
       <span>{{ m.date }}</span>
     </p>
+
     <p class="page-desc">{{ m.desc }}</p>
 
+    <div class="info-table">
+      <div class="info-row">
+        <span class="info-key">🏷️ 系列</span>
+        <span class="info-val"><a href="/c/{{ cat.id }}/">{{ cat.name }}</a></span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">🔢 编号</span>
+        <span class="info-val">{{ m.item_id }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-key">📊 数量</span>
+        <span class="info-val">{{ m.total_count }} 张</span>
+      </div>
+      {% if m.size %}
+      <div class="info-row">
+        <span class="info-key">📐 尺寸</span>
+        <span class="info-val">{{ m.size }}</span>
+      </div>
+      {% endif %}
+      {% if m.scene %}
+      <div class="info-row">
+        <span class="info-key">🏠 场景</span>
+        <span class="info-val">{{ m.scene }}</span>
+      </div>
+      {% endif %}
+    </div>
+
+    {% if m.download_url %}
     <a class="btn-download" href="{{ m.download_url }}" target="_blank" rel="noopener">
-      <span class="btn-main">下载全套原图</span>
-      <span class="btn-sub">{{ m.download_note }}</span>
+      <span class="btn-main">📥 下载全套原图</span>
+      <span class="btn-sub">全套 {{ m.total_count }} 张原图 · 无提取码</span>
     </a>
+    {% else %}
+    <div class="btn-download is-disabled" aria-disabled="true">
+      <span class="btn-main">📥 下载链接准备中</span>
+      <span class="btn-sub">全套 {{ m.total_count }} 张原图 · 无提取码</span>
+    </div>
+    {% endif %}
+
+    <p class="lead">✨ 本套共 {{ m.total_count }} 张高清图集，精选 {{ m.photos|length }} 张预览，完整图集见上方获取方式 ↑</p>
 
     <div class="photo-grid">
       {% for p in m.photos %}
       <a class="photo" href="javascript:void(0)" data-full="{{ p }}">
-        <img src="{{ p }}" alt="{{ m.name }} {{ loop.index }}" loading="lazy" width="600" height="800">
+        <img src="{{ p }}" alt="{{ m.title }} {{ loop.index }}" loading="lazy" width="600" height="800">
       </a>
       {% endfor %}
     </div>
+
+    {% if m.tags %}
+    <div class="tags-block">
+      <h2 class="tags-title">🏷️ 标签</h2>
+      <div class="tag-list">
+        {% for t in m.tags %}<span class="chip">{{ t }}</span>{% endfor %}
+      </div>
+    </div>
+    {% endif %}
 
     {% if related %}
     <h2 class="section-title">同类作品</h2>

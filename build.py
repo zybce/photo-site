@@ -51,13 +51,17 @@ def normalize(data):
     return data
 
 
+def _label(m):
+    return m.get("item_id") or m.get("title") or m.get("id", "")
+
+
 def check_images(data, warnings):
     for m in data["models"]:
         if not m["photos"]:
-            warnings.append(f"人物「{m['name']}」没有配置图片")
+            warnings.append(f"作品「{_label(m)}」没有配置图片")
         for p in m["photos"]:
             if not (IMAGES / p.lstrip("/")[len("images/"):]).exists():
-                warnings.append(f"图片缺失：{p}（人物「{m['name']}」）")
+                warnings.append(f"图片缺失：{p}（作品「{_label(m)}」）")
 
 
 def make_env():
@@ -107,7 +111,7 @@ def build():
     check_images(data, warnings)
     for m in models:
         if m["category"] not in cat_by_id:
-            warnings.append(f"人物「{m['name']}」的分类 id「{m['category']}」不在分类列表中")
+            warnings.append(f"作品「{_label(m)}」的分类 id「{m['category']}」不在分类列表中")
 
     counts = {c["id"]: 0 for c in categories}
     for m in models:
@@ -144,15 +148,15 @@ def build():
         )
         pages += 1
 
-    # 人物详情页
+    # 作品详情页
     for m in models:
         cat = cat_by_id.get(m["category"], {"id": m["category"], "name": m["category"]})
         related = [x for x in models if x["category"] == m["category"] and x["id"] != m["id"]][:RELATED_COUNT]
         render(
             env, "model.html", OUTPUT / "m" / m["id"] / "index.html",
             site=site, m=m, cat=cat, related=related,
-            title=f"{m['name']} · {cat['name']} - {site['name']}",
-            description=(m.get("desc") or "")[:110] or f"{m['name']}的{cat['name']}写真作品",
+            title=f"【{m.get('item_id', '')}】{m.get('title', '')} · {cat['name']} - {site['name']}",
+            description=(m.get("desc") or "")[:110] or f"{m.get('title', '')}的{cat['name']}写真作品",
             og_image=absolute(site, m["cover"]),
         )
         pages += 1

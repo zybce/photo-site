@@ -1,11 +1,11 @@
 {% macro model_card(m) %}
 <a class="card" href="/m/{{ m.id }}/">
   <div class="card-thumb">
-    <img src="{{ m.photos[0] }}" alt="{{ m.name }}" loading="lazy" width="600" height="800">
+    <img src="{{ m.photos[0] }}" alt="{{ m.title }}" loading="lazy" width="600" height="800">
   </div>
   <div class="card-body">
-    <h3 class="card-title">{{ m.name }}</h3>
-    <p class="card-meta">{% for t in m.tags %}<span class="tag">{{ t }}</span>{% endfor %}</p>
+    <h3 class="card-title">{{ m.title }}</h3>
+    <p class="card-code">{{ m.item_id }}</p>
   </div>
 </a>
 {% endmacro %}
