@@ -1,0 +1,6 @@
+<nav class="cat-nav wrap" aria-label="分类导航">
+  <a class="chip {% if not current_cat|default('') %}is-active{% endif %}" href="/">推荐</a>
+  {% for c in categories %}
+  <a class="chip {% if current_cat|default('') == c.id %}is-active{% endif %}" href="/c/{{ c.id }}/">{{ c.name }}</a>
+  {% endfor %}
+</nav>

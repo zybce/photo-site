@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% import "_macros.html" as ui %}
+
+{% set active_nav = 'help' %}
+
+{% block content %}
+<div class="wrap page-narrow">
+  <h1 class="section-title">帮助</h1>
+  <p class="section-sub">使用说明正在整理中，先看下面这些常见问题。</p>
+
+  <div class="faq">
+    <details>
+      <summary>如何下载全套原图？</summary>
+      <p>进入作品详情页，点击「立即下载」即可跳转到网盘，无需提取码。</p>
+    </details>
+    <details>
+      <summary>站内预览和原图有什么区别？</summary>
+      <p>站内只展示部分精选预览图，原图全套数量以详情页「数量」为准。</p>
+    </details>
+    <details>
+      <summary>链接失效怎么办？</summary>
+      <p>请联系 {{ site.contact }}，看到后会尽快补链。</p>
+    </details>
+  </div>
+
+  {{ ui.empty_state("更多帮助内容筹备中") }}
+</div>
+{% endblock %}

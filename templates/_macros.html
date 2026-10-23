@@ -1,15 +1,20 @@
-{% macro model_card(m) %}
+{% macro card(m) %}
 <a class="card" href="/m/{{ m.id }}/">
-  <div class="card-thumb">
-    <img src="{{ m.photos[0] }}" alt="{{ m.title }}" loading="lazy" width="600" height="800">
+  <div class="card-thumb"{% if m.cover_w and m.cover_h %} style="aspect-ratio: {{ m.cover_w }} / {{ m.cover_h }}"{% endif %}>
+    {% if m.thumbs %}
+    <img src="{{ m.thumbs[0]|bust }}" alt="{{ m.title }}" loading="lazy" width="{{ m.cover_w }}" height="{{ m.cover_h }}">
+    {% endif %}
   </div>
-  <div class="card-body">
-    <h3 class="card-title">{{ m.title }}</h3>
-    <p class="card-code">{{ m.item_id }}</p>
+  <div class="card-info">
+    <span class="card-code">{{ m.item_id }}</span>
+    <span class="card-title">{{ m.title }}</span>
   </div>
 </a>
 {% endmacro %}
 
-{% macro crumbs(items) %}
-<nav class="crumbs">{% for it in items %}{% if it.url %}<a href="{{ it.url }}">{{ it.text }}</a>{% else %}<span>{{ it.text }}</span>{% endif %}{% if not loop.last %}<i>/</i>{% endif %}{% endfor %}</nav>
+{% macro empty_state(text) %}
+<div class="empty-state">
+  <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.2" y="4.8" width="17.6" height="14.4" rx="2.4"></rect><circle cx="9" cy="10" r="1.6"></circle><path d="m4.5 16.5 4.6-4.1 3.6 3.1 3-2.6 4.3 3.8"></path></svg>
+  <p>{{ text }}</p>
+</div>
 {% endmacro %}

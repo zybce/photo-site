@@ -5,40 +5,62 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>{{ title }}</title>
 <meta name="description" content="{{ description }}">
-<meta name="theme-color" content="#ffffff">
+<meta name="theme-color" content="#0b0d12">
 <meta property="og:type" content="website">
 <meta property="og:title" content="{{ title }}">
 <meta property="og:description" content="{{ description }}">
 <meta property="og:image" content="{{ og_image }}">
-<link rel="stylesheet" href="/static/style.css">
+<link rel="icon" type="image/png" sizes="32x32" href="/static/assets/favicon-32.png">
+<link rel="apple-touch-icon" href="/static/assets/avatar-144.webp">
+<link rel="stylesheet" href="/static/style.css?v={{ static_ver }}">
 </head>
-<body>
-<header class="site-header">
-  <div class="wrap">
-    <a class="brand" href="/">{{ site.name }}</a>
-    <nav class="nav"><a href="/#categories">全部分类</a></nav>
+<body class="{% block body_class %}{% endblock %}">
+<header class="topbar">
+  <div class="topbar-row wrap">
+    <a class="brand" href="/">
+      <img class="brand-avatar" src="/static/assets/avatar-72.webp" alt="{{ site.name }}" width="32" height="32">
+      <span class="brand-name">{{ site.name }}</span>
+    </a>
+
+    <div class="search" id="search">
+      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5 21 21"></path></svg>
+      <input id="search-input" class="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="搜索标题 / 编号 / 标签" aria-label="站内搜索">
+      <button class="search-clear" id="search-clear" type="button" aria-label="清空" hidden>&times;</button>
+      <div class="search-panel" id="search-panel" hidden></div>
+    </div>
   </div>
+
+  {% include "_nav.html" %}
 </header>
 
-<main>
+<main class="main">
 {% block content %}{% endblock %}
 </main>
 
 <footer class="site-footer">
-  <div class="wrap">
-    <p>{{ site.name }} · {{ site.tagline }}</p>
-    <p class="muted">{{ site.contact }}</p>
-  </div>
+  <p>{{ site.name }} · {{ site.tagline }}</p>
+  <p class="muted">{{ site.contact }}</p>
 </footer>
 
-<div class="lightbox" id="lightbox" hidden>
-  <button class="lb-close" type="button" aria-label="关闭">&times;</button>
-  <button class="lb-prev" type="button" aria-label="上一张">&#10094;</button>
-  <img class="lb-img" alt="">
-  <button class="lb-next" type="button" aria-label="下一张">&#10095;</button>
-  <div class="lb-count"></div>
-</div>
+{% if not hide_bottom_nav|default(false) %}
+<nav class="bottom-nav" aria-label="底部导航">
+  <a class="bn-item {% if active_nav|default('') == 'home' %}is-active{% endif %}" href="/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
+    <span>首页</span>
+  </a>
+  <a class="bn-item {% if active_nav|default('') == 'help' %}is-active{% endif %}" href="/help/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.2 9.3a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.2-2.8 3.7"></path><path d="M12 17.2h.01"></path></svg>
+    <span>帮助</span>
+  </a>
+  <a class="bn-item {% if active_nav|default('') == 'join' %}is-active{% endif %}" href="/join/">
+    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.4"></circle><path d="M2.8 19.5c.5-3 3-4.7 6.2-4.7s5.7 1.7 6.2 4.7"></path><path d="M17 8.2v6M14 11.2h6"></path></svg>
+    <span>招募</span>
+  </a>
+</nav>
+{% endif %}
 
-<script src="/static/app.js"></script>
+<div class="toast" id="toast" hidden></div>
+
+<script src="/static/app.js?v={{ static_ver }}" defer></script>
 </body>
 </html>

@@ -1,0 +1,12 @@
+{% extends "base.html" %}
+{% import "_macros.html" as ui %}
+
+{% set active_nav = 'join' %}
+
+{% block content %}
+<div class="wrap page-narrow">
+  <h1 class="section-title">招募</h1>
+  <p class="section-sub">合作与招募信息正在筹备中。</p>
+  {{ ui.empty_state("招募内容即将上线，敬请期待") }}
+</div>
+{% endblock %}

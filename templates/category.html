@@ -2,20 +2,19 @@
 {% import "_macros.html" as ui %}
 
 {% block content %}
-<section class="section">
-  <div class="wrap">
-    {{ ui.crumbs([{"text": "首页", "url": "/"}, {"text": cat.name}]) }}
-    <h1 class="page-title">{{ cat.name }}</h1>
-    {% if cat.sub %}<p class="page-sub">{{ cat.sub }}</p>{% endif %}
-    <p class="page-desc">{{ cat.desc }}</p>
-
-    {% if models %}
-    <div class="card-grid">
-      {% for m in models %}{{ ui.model_card(m) }}{% endfor %}
-    </div>
-    {% else %}
-    <p class="empty">这个分类还在拍摄中，敬请期待。</p>
-    {% endif %}
+<div class="wrap">
+  <div class="section-head">
+    <h1 class="section-title">{{ cat.name }}</h1>
+    <span class="section-count">{{ models|length }} 套</span>
   </div>
-</section>
+  <p class="section-sub">{{ cat.desc }}{% if cat.sub %} · {{ cat.sub }}{% endif %}</p>
+
+  {% if models %}
+  <div class="masonry" data-masonry>
+    {% for m in models %}{{ ui.card(m) }}{% endfor %}
+  </div>
+  {% else %}
+  {{ ui.empty_state("该系列正在筹备中，敬请期待") }}
+  {% endif %}
+</div>
 {% endblock %}
