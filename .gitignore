@@ -1,0 +1,11 @@
+# 只跟踪站点发布产物与体积很小的构建源码，源图目录留在本地
+/*
+!/.gitignore
+!/output/
+!/build.py
+!/templates/
+!/static/
+!/content/
+!/assets/
+!/deploy.bat
+!/preview.bat

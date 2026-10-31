@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% import "_macros.html" as ui %}
+
+{% set active_nav = 'home' %}
+
+{% block content %}
+<div class="wrap">
+  <div class="section-head">
+    <h1 class="section-title">推荐</h1>
+    <span class="section-count">{{ models|length }} 套</span>
+  </div>
+
+  <div class="masonry" data-masonry>
+    {% for m in models %}{{ ui.card(m) }}{% endfor %}
+  </div>
+</div>
+{% endblock %}

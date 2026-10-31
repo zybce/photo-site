@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% import "_macros.html" as ui %}
+
+{% block content %}
+<div class="wrap">
+  <div class="section-head">
+    <h1 class="section-title">{{ cat.name }}</h1>
+    <span class="section-count">{{ models|length }} 套</span>
+  </div>
+  <p class="section-sub">{{ cat.desc }}{% if cat.sub %} · {{ cat.sub }}{% endif %}</p>
+
+  {% if models %}
+  <div class="masonry" data-masonry>
+    {% for m in models %}{{ ui.card(m) }}{% endfor %}
+  </div>
+  {% else %}
+  {{ ui.empty_state("该系列正在筹备中，敬请期待") }}
+  {% endif %}
+</div>
+{% endblock %}
