@@ -1,22 +1,18 @@
-@echo off
-rem Ò»¼ü·¢²¼£ºÖØĞÂÉú³ÉÒ³Ãæ²¢ÍÆËÍµ½ GitHub£¨Cloudflare Pages »á×Ô¶¯²¿Êğ£©
-rem ÍÆËÍÄ¬ÈÏÖ±Á¬£»Ö±Á¬Ê§°ÜÊ±×Ô¶¯ÁÙÊ±×ßÒ»´Î´úÀí£¨ÓÃÍê¼´Æú£¬²»Ğ´Èë git ÅäÖÃ£©
-set PROXY=http://192.168.1.200:7890
+ï»¿@echo off
+chcp 65001 >nul
+rem ä¸€é”®å‘å¸ƒï¼šé‡æ–°ç”Ÿæˆé¡µé¢å¹¶æ¨é€åˆ° GitHubï¼ˆCloudflare Pages ä¼šè‡ªåŠ¨éƒ¨ç½²ï¼‰
+rem æ¨é€èµ° SSHï¼ˆgit@github.comï¼‰ï¼Œæ— éœ€ä»£ç†
 cd /d %~dp0
 C:\ProgramData\miniconda3\envs\image\python.exe build.py || goto :err
 git add -A
-git diff --cached --quiet && (echo Ã»ÓĞÄÚÈİ±ä¸ü£¬Ìø¹ıÌá½») || git commit -m "¸üĞÂÕ¾µãÄÚÈİ"
-git push && goto :ok
+git diff --cached --quiet && (echo æ²¡æœ‰å†…å®¹å˜æ›´ï¼Œè·³è¿‡æäº¤) || git commit -m "æ›´æ–°ç«™ç‚¹å†…å®¹"
+git push || goto :err
 echo.
-echo Ö±Á¬ÍÆËÍÊ§°Ü£¬ÁÙÊ±×ß´úÀí %PROXY% ÖØÊÔÒ»´Î...
-git -c http.proxy=%PROXY% push || goto :err
-:ok
-echo.
-echo ·¢²¼Íê³É£¬Cloudflare Pages Ô¼ 1-2 ·ÖÖÓºóÉúĞ§¡£
+echo å‘å¸ƒå®Œæˆï¼ŒCloudflare Pages çº¦ 1-2 åˆ†é’Ÿåç”Ÿæ•ˆã€‚
 pause
 exit /b 0
 :err
 echo.
-echo ³ö´íÁË£¬°ÑÉÏÃæµÄ±¨´íĞÅÏ¢·¢¸øÎÒÅÅ²é¡£
+echo å‡ºé”™äº†ï¼ŒæŠŠä¸Šé¢çš„æŠ¥é”™ä¿¡æ¯å‘ç»™æˆ‘æ’æŸ¥ã€‚
 pause
 exit /b 1
