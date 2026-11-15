@@ -1,28 +1,29 @@
 {% extends "base.html" %}
-{% import "_macros.html" as ui %}
 
 {% set active_nav = 'help' %}
 
 {% block content %}
 <div class="wrap page-narrow">
-  <h1 class="section-title">帮助</h1>
-  <p class="section-sub">使用说明正在整理中，先看下面这些常见问题。</p>
+  <h1 class="section-title">帮助 · 使用说明</h1>
+  <p class="section-sub">从小红书过来？三步就能找到并下载全套原图。</p>
 
-  <div class="faq">
-    <details>
-      <summary>如何下载全套原图？</summary>
-      <p>进入作品详情页，点击「立即下载」即可跳转到网盘，无需提取码。</p>
-    </details>
-    <details>
-      <summary>站内预览和原图有什么区别？</summary>
-      <p>站内只展示部分精选预览图，原图全套数量以详情页「数量」为准。</p>
-    </details>
-    <details>
-      <summary>链接失效怎么办？</summary>
-      <p>请联系 {{ site.contact }}，看到后会尽快补链。</p>
-    </details>
-  </div>
+  <ol class="help-steps">
+    <li>
+      <h2>记住作品编号</h2>
+      <p>小红书每篇笔记的最后一行都标注了作品编号，形如 JPCD0018。本站每套作品的封面正下方、详情页标题下方，显示的是同一个编号。编号是本站与小红书笔记的唯一对应凭据，字母不区分大小写。</p>
+    </li>
+    <li>
+      <h2>在顶部搜索框按编号搜索</h2>
+      <p>在页面顶部的搜索框输入编号，例如 JPCD0018（输入 jpcd0018 也可以），下方会立即出现对应作品，点击即可进入详情页。搜索框同时也支持按标题、标签、分类名搜索。</p>
+    </li>
+    <li>
+      <h2>在详情页下载</h2>
+      <p>进入作品详情页后，页面底部有「立即下载」按钮（手机上会吸附在屏幕最下方），点击后跳转到网盘，无需提取码。站内只展示部分精选预览图，原图全套数量以详情页「数量」为准。</p>
+    </li>
+  </ol>
 
-  {{ ui.empty_state("更多帮助内容筹备中") }}
+  <p class="help-cta">
+    <a class="btn btn-primary" href="/works/">进入作品库 →</a>
+  </p>
 </div>
 {% endblock %}

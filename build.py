@@ -269,9 +269,9 @@ def build():
         "current_cat": "",
     }
 
-    # 首页 = 推荐（全部作品，首发日期倒序）
+    # 作品库 = 全部作品（首发日期倒序），原首页内容迁到 /works/
     render(
-        env, "index.html", OUTPUT / "index.html",
+        env, "index.html", OUTPUT / "works" / "index.html",
         **common,
         models=models,
         title=f"{site['name']} · {site['tagline']}",
@@ -317,16 +317,24 @@ def build():
         )
         pages += 1
 
-    # 帮助 / 招募（占位）
-    for page, template in (("help", "help.html"), ("join", "join.html")):
-        render(
-            env, template, OUTPUT / page / "index.html",
-            **common,
-            title=f"{'帮助' if page == 'help' else '招募'} - {site['name']}",
-            description=site["description"],
-            og_image=absolute(site, models[0]["cover"] if models else ""),
-        )
-        pages += 1
+    # 帮助 = 站点默认页（根路径）；招募独立页面
+    render(
+        env, "help.html", OUTPUT / "index.html",
+        **common,
+        title=f"帮助 · 使用说明 - {site['name']}",
+        description=site["description"],
+        og_image=absolute(site, models[0]["cover"] if models else ""),
+    )
+    pages += 1
+
+    render(
+        env, "join.html", OUTPUT / "join" / "index.html",
+        **common,
+        title=f"招募 - {site['name']}",
+        description=site["description"],
+        og_image=absolute(site, models[0]["cover"] if models else ""),
+    )
+    pages += 1
 
     # 404
     render(

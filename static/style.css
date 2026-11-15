@@ -519,6 +519,50 @@ svg { fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round
 
 /* ---------- 帮助 / 招募 / 404 ---------- */
 .page-narrow { max-width: 820px; }
+
+/* ---------- 帮助页 ---------- */
+.help-steps {
+  list-style: none;
+  margin: 18px 0 0;
+  padding: 0;
+  counter-reset: step;
+}
+.help-steps li {
+  counter-increment: step;
+  position: relative;
+  padding: 16px 18px 16px 58px;
+  margin-bottom: 12px;
+  border: 1px solid var(--line-soft);
+  border-radius: 12px;
+  background: var(--panel);
+}
+.help-steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent);
+  font-size: 14px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.help-steps h2 { margin: 0 0 6px; font-size: 15px; font-weight: 700; }
+.help-steps p { margin: 0; font-size: 13px; color: var(--fg-dim); line-height: 1.75; }
+
+.help-cta { margin: 30px auto 10px; max-width: 420px; }
+.help-cta .btn {
+  width: 100%;
+  height: 52px;
+  font-size: 16px;
+  letter-spacing: 0.02em;
+}
+
 .faq { margin: 10px 0 22px; }
 .faq details {
   border: 1px solid var(--line-soft);
