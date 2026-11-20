@@ -3,96 +3,95 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>帮助 · 使用说明 - 观球盛宴</title>
-<meta name="description" content="个人写真作品展示 · 每套 N 张精选预览 · 全套原图网盘下载">
+<title>网站维护中 - 观球盛宴</title>
+<meta name="description" content="网站正在维护中，请稍后再来。">
 <meta name="theme-color" content="#0b0d12">
-<meta property="og:type" content="website">
-<meta property="og:title" content="帮助 · 使用说明 - 观球盛宴">
-<meta property="og:description" content="个人写真作品展示 · 每套 N 张精选预览 · 全套原图网盘下载">
-<meta property="og:image" content="/images/00302/01.webp">
-<link rel="icon" type="image/png" sizes="32x32" href="/static/assets/favicon-32.png">
-<link rel="apple-touch-icon" href="/static/assets/avatar-144.webp">
-<link rel="stylesheet" href="/static/style.css?v=1794728328">
+<link rel="icon" href="data:,">
+<style>
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; }
+  body {
+    min-height: 100vh;
+    min-height: 100svh;
+    display: grid;
+    place-items: center;
+    padding: 24px;
+    color: #e8ecf4;
+    background:
+      radial-gradient(circle at 50% 20%, rgba(255, 107, 53, .09), transparent 38%),
+      #0b0d12;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  }
+  .card {
+    width: min(100%, 520px);
+    padding: 48px 40px 40px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, .09);
+    border-radius: 20px;
+    background: rgba(18, 21, 28, .94);
+    box-shadow: 0 24px 70px rgba(0, 0, 0, .35);
+  }
+  .brand {
+    margin: 0 0 30px;
+    color: #f2f5fa;
+    font-size: 18px;
+    font-weight: 700;
+    letter-spacing: .12em;
+  }
+  .status {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 18px;
+    padding: 7px 12px;
+    color: #ff9a70;
+    background: rgba(255, 107, 53, .10);
+    border: 1px solid rgba(255, 107, 53, .20);
+    border-radius: 999px;
+    font-size: 12px;
+  }
+  .dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: #ff6b35;
+    box-shadow: 0 0 0 4px rgba(255, 107, 53, .12);
+  }
+  h1 {
+    margin: 0 0 18px;
+    font-size: clamp(28px, 7vw, 36px);
+    line-height: 1.25;
+    letter-spacing: .04em;
+  }
+  .message {
+    margin: 0;
+    color: #aab2c0;
+    font-size: 15px;
+    line-height: 1.9;
+  }
+  .divider {
+    width: 48px;
+    height: 2px;
+    margin: 30px auto 20px;
+    background: linear-gradient(90deg, #ff6b35, #ff8c42);
+    border-radius: 2px;
+  }
+  .note { margin: 0; color: #737d8d; font-size: 13px; }
+  @media (max-width: 480px) {
+    body { padding: 18px; }
+    .card { padding: 38px 24px 32px; border-radius: 16px; }
+    .brand { margin-bottom: 26px; }
+  }
+</style>
 </head>
-<body class="">
-<header class="topbar">
-  <div class="topbar-row wrap">
-    <a class="brand" href="/">
-      <img class="brand-avatar" src="/static/assets/avatar-72.webp" alt="观球盛宴" width="32" height="32">
-      <span class="brand-name">观球盛宴</span>
-    </a>
-
-    <div class="search" id="search">
-      <svg class="search-icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7"></circle><path d="M16.5 16.5 21 21"></path></svg>
-      <input id="search-input" class="search-input" type="search" autocomplete="off" spellcheck="false" placeholder="搜索标题 / 编号 / 标签" aria-label="站内搜索">
-      <button class="search-clear" id="search-clear" type="button" aria-label="清空" hidden>&times;</button>
-      <div class="search-panel" id="search-panel" hidden></div>
-    </div>
-  </div>
-
-<nav class="cat-nav wrap" aria-label="分类导航">
-  <a class="chip " href="/works/">作品</a>
-  <a class="chip " href="/c/xiaoyuan/">校园制服</a>
-  <a class="chip " href="/c/guofeng/">国风古韵</a>
-  <a class="chip " href="/c/zhichang/">职场通勤</a>
-  <a class="chip " href="/c/jujia/">居家氛围</a>
-  <a class="chip " href="/c/yundong/">运动健身</a>
-  <a class="chip " href="/c/lvxing/">旅行度假</a>
-  <a class="chip " href="/c/jiepai/">街拍穿搭</a>
-  <a class="chip " href="/c/cos/">二次元COS</a>
-  <a class="chip " href="/c/lifu/">礼服派对</a>
-  <a class="chip " href="/c/yishu/">艺术写真</a>
-</nav>
-</header>
-
-<main class="main">
-<div class="wrap page-narrow">
-  <h1 class="section-title">帮助 · 使用说明</h1>
-  <p class="section-sub">从小红书过来？三步就能找到并下载全套原图。</p>
-
-  <ol class="help-steps">
-    <li>
-      <h2>记住作品编号</h2>
-      <p>小红书每篇笔记的最后一行都标注了作品编号，形如 JPCD0018。本站每套作品的封面正下方、详情页标题下方，显示的是同一个编号。编号是本站与小红书笔记的唯一对应凭据，字母不区分大小写。</p>
-    </li>
-    <li>
-      <h2>在顶部搜索框按编号搜索</h2>
-      <p>在页面顶部的搜索框输入编号，例如 JPCD0018（输入 jpcd0018 也可以），下方会立即出现对应作品，点击即可进入详情页。搜索框同时也支持按标题、标签、分类名搜索。</p>
-    </li>
-    <li>
-      <h2>在详情页下载</h2>
-      <p>进入作品详情页后，页面底部有「立即下载」按钮（手机上会吸附在屏幕最下方），点击后跳转到网盘，无需提取码。站内只展示部分精选预览图，原图全套数量以详情页「数量」为准。</p>
-    </li>
-  </ol>
-
-  <p class="help-cta">
-    <a class="btn btn-primary" href="/works/">进入作品库 →</a>
-  </p>
-</div>
+<body>
+<main class="card">
+  <p class="brand">观球盛宴</p>
+  <div class="status"><span class="dot" aria-hidden="true"></span>站点维护通知</div>
+  <h1>网站维护中</h1>
+  <p class="message">正在整理作品与下载链接，暂时关闭访问。<br>请稍后再来，感谢你的耐心等待。</p>
+  <div class="divider" aria-hidden="true"></div>
+  <p class="note">维护结束后恢复访问</p>
 </main>
-
-<footer class="site-footer">
-  <p>观球盛宴 · 记录每一次快门下的真实</p>
-  <p class="muted">有问题请联系：1234567890</p>
-</footer>
-
-<nav class="bottom-nav" aria-label="底部导航">
-  <a class="bn-item " href="/works/">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"></path><path d="M5 9.5V21h14V9.5"></path></svg>
-    <span>作品</span>
-  </a>
-  <a class="bn-item is-active" href="/">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"></circle><path d="M9.2 9.3a2.9 2.9 0 0 1 5.6 1c0 1.9-2.8 2.2-2.8 3.7"></path><path d="M12 17.2h.01"></path></svg>
-    <span>帮助</span>
-  </a>
-  <a class="bn-item " href="/join/">
-    <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.4"></circle><path d="M2.8 19.5c.5-3 3-4.7 6.2-4.7s5.7 1.7 6.2 4.7"></path><path d="M17 8.2v6M14 11.2h6"></path></svg>
-    <span>招募</span>
-  </a>
-</nav>
-
-<div class="toast" id="toast" hidden></div>
-
-<script src="/static/app.js?v=1794728328" defer></script>
 </body>
 </html>
